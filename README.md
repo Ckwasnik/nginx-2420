@@ -17,7 +17,7 @@ SETTING UP OUR DIRECTORY
 
 CREATING OUR HTML FILE
 
-1. create a file called index.html within the ```./nginx-2420```, and copy and paste or write the following document into your index.html file.
+1. create a file called index.html within the ./nginx-2420 directory, and copy and paste or write the following document into your index.html file.
    
    ```sudo vim index.html```
    
@@ -56,7 +56,7 @@ CONFIGURING OUR NGINX SERVER BLOCK
 
 1. Creating server blocks allow us to easily enable and disable different sites, so we will be creating one for our server.
 
-2. To create our server block, we will create 2 directories for our nginx to look into. One is named ```sites-available``` inside our /etc/nginx/ directory, where our nginx will look for created files. the other is ```sites-delivered```, which our nginx will use to look for websites to host.
+2. To create our server block, we will create 2 directories for our nginx to look into. One is named "sites-available" inside our /etc/nginx/ directory, where our nginx will look for created files. the other is "sites-delivered", which our nginx will use to look for websites to host.
 
    ```cd /etc/nginx/```
    
@@ -80,7 +80,7 @@ CONFIGURING OUR NGINX SERVER BLOCK
          }
    }```
 
-7. We need to create a symbolic link from our ```./etc/nginx/sites-available/nginx-2420``` directory to ```/etc/nginx/sites-enabled/.``` This is where nginx looks for sites to use and serve. Use the following command:
+7. We need to create a symbolic link from our ./etc/nginx/sites-available/nginx-2420 directory to /etc/nginx/sites-enabled/. This is where nginx looks for sites to use and serve. Use the following command:
    
    ```sudo ln -s /etc/nginx/sites-available/nginx-2420.conf /etc/nginx/sites-enabled```
 
