@@ -13,7 +13,12 @@ SETTING UP OUR DIRECTORY
    
    ```mkdir -p /web/html/nginx-2420```
 
-2. Copy and paste or write the following document into a file called index.html in our nginx-2420 directory. 
+CREATING OUR HTML FILE
+
+3. Copy and paste or write the following document into a file called index.html in our ./nginx-2420 directory.
+   
+   ```sudo vim index.html```
+   
    ```<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,3 +47,27 @@ SETTING UP OUR DIRECTORY
     <h1>All your base are belong to us</h1>
 </body>
 </html>```
+
+CONFIGURING OUR NGINX SERVER BLOCK
+
+1. Creating server blocks allow us to easily enable and disable different sites, so we will be creating one for our server.
+
+2. To create our server block, we will create a directory named ```sites-available``` inside our /etc/nginx/ directory.
+   ```cd /etc/nginx/```
+   ```sudo mkdir sites-available```
+
+3. Within our ./sites-available directory create a new file named ```nginx-2420```
+   ```sudo vim nginx-2420```
+
+4. Copy and paste the following configuration, replacing each line as desired.
+   ```server {
+         listen 80;
+         server_name locahost;
+
+         location / {
+                     root /web/html/nginx-2420;
+                     index index.html;
+         }
+   }```
+   
+
