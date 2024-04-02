@@ -2,9 +2,11 @@
 
 INSTALL NEEDED SOFTWARE
 
-1.To begin, install Vim by using ```sudo pacman -Syu Vim```, which is the text editor we will use to write and edit files. ```pacman``` is the package manager for linux and ```-Syu``` ensures that we have the latest package info before installing Vim.
+1.To begin, install Vim by using ```sudo pacman -Syu Vim```, which is the text editor we will use to write and edit files. Pacman is the package manager for linux and ```-Syu``` ensures that we have the latest package info before installing Vim.
 
-2. Next, install Nginx using ```sudo pacman -S nginx```. Nginx is the package we will be using to host our webserver.
+2. Next, install Nginx. Nginx is the package we will be using to host our webserver.
+
+   ```sudo pacman -S nginx```
 
 SETTING UP OUR DIRECTORY
 
@@ -56,13 +58,16 @@ CONFIGURING OUR NGINX SERVER BLOCK
 
 2. To create our server block, we will create 2 directories for our nginx to look into. One is named ```sites-available``` inside our /etc/nginx/ directory, where our nginx will look for created files. the other is ```sites-delivered```, which our nginx will use to look for websites to host.
    ```cd /etc/nginx/```
+   
    ```sudo mkdir sites-available```
+   
    ```sudo mkdir sites-delivered```
 
 4. Within our ./sites-available directory create a new file named ```nginx-2420```
+   
    ```sudo vim nginx-2420```
 
-5. Copy and paste the following configuration, replacing each line as desired.
+6. Copy and paste the following configuration, replacing each line as desired.
    ```
    server {
          listen 80;
@@ -74,7 +79,8 @@ CONFIGURING OUR NGINX SERVER BLOCK
          }
    }```
 
-6. We need to create a symbolic link from our ```./etc/nginx/sites-available/nginx-2420``` directory to ```/etc/nginx/sites-enabled/.``` This is where nginx looks for sites to use and serve. Use the following command:
+7. We need to create a symbolic link from our ```./etc/nginx/sites-available/nginx-2420``` directory to ```/etc/nginx/sites-enabled/.``` This is where nginx looks for sites to use and serve. Use the following command:
+   
    ```sudo ln -s /etc/nginx/sites-available/nginx-2420.conf /etc/nginx/sites-enabled```
 
 SYSTEMD CONFIG
@@ -112,10 +118,9 @@ this ensures that the systemd config files are up to date and enable the changes
    
    ```systemctl start nginx```
 
-```systemctl start``` starts the service, which should allow us to host and access our website.  
+```systemctl start``` 
 
-5. 
-
+this will start the service, which should allow us to host and access our website.  
 
 
    
