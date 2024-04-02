@@ -17,7 +17,7 @@ SETTING UP OUR DIRECTORY
 
 CREATING OUR HTML FILE
 
-3. Copy and paste or write the following document into a file called index.html in our ./nginx-2420 directory.
+1. create a file called index.html within the ```./nginx-2420```, and copy and paste or write the following document into your index.html file.
    
    ```sudo vim index.html```
    
@@ -57,6 +57,7 @@ CONFIGURING OUR NGINX SERVER BLOCK
 1. Creating server blocks allow us to easily enable and disable different sites, so we will be creating one for our server.
 
 2. To create our server block, we will create 2 directories for our nginx to look into. One is named ```sites-available``` inside our /etc/nginx/ directory, where our nginx will look for created files. the other is ```sites-delivered```, which our nginx will use to look for websites to host.
+
    ```cd /etc/nginx/```
    
    ```sudo mkdir sites-available```
@@ -99,7 +100,6 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStartPre=/usr/bin/nginx -t
 ExecStart=/usr/bin/nginx
 ExecReload=/usr/bin/nginx -s reload
 ExecStop=/usr/bin/nginx -s stop
@@ -107,6 +107,15 @@ ExecStop=/usr/bin/nginx -s stop
 [Install]
 WantedBy=multi-user.target
 ```
+```Type```: Specifies the process startup type. forking means that the process will create a child process and then exit the parent process once initialization is done. This is common for NGINX.
+
+```ExecStart```: Starts the service
+
+```ExecReload```: To reload the service 
+
+```ExecStop```: Stops the service. 
+
+```WantedBy```: Specifies multi user target, which starts it in multi user mode which is also common. 
 
 3. After using saving and escaping the file, run
 
@@ -114,11 +123,9 @@ WantedBy=multi-user.target
 
 this ensures that the systemd config files are up to date and enable the changes made
    
-   followed by
+   followed this up with
    
-   ```systemctl start nginx```
-
-```systemctl start``` 
+```systemctl start nginx```
 
 this will start the service, which should allow us to host and access our website.  
 
