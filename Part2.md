@@ -86,7 +86,8 @@ we need to configure our previously made nginx file in ```/etc/nginx/sites-avail
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
-    }                                                                   }```
+    }                                                                   }
+```
 
 3. We define a proxy_pass for http:127.0.0.1:8080 for both "hey" and "echo" for the backend service.
 
