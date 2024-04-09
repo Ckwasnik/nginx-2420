@@ -39,7 +39,8 @@ ExecStart=/usr/local/bin/hello-server
 Restart=always
 
 [Install]
-WantedBy=multi-user.target```
+WantedBy=multi-user.target
+```
 
 3. Next we need to save our changes, use
 
